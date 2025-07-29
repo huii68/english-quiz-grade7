@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Quiz - Grade 7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 5px;
+    }
+    button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>English Grammar & Vocabulary Quiz - Grade 7</h1>
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. She usually ______ to school by bike.</h3>
+      <label><input type="radio" name="q1" value="goes"> goes</label><br>
+      <label><input type="radio" name="q1" value="gos"> gos</label><br>
+      <label><input type="radio" name="q1" value="go"> go</label>
+    </div>
+    <div class="question">
+      <h3>2. They ______ soccer every Sunday.</h3>
+      <label><input type="radio" name="q2" value="plays"> plays</label><br>
+      <label><input type="radio" name="q2" value="play"> play</label><br>
+      <label><input type="radio" name="q2" value="playing"> playing</label>
+    </div>
+    <div class="question">
+      <h3>3. What time ______ you get up?</h3>
+      <label><input type="radio" name="q3" value="do"> do</label><br>
+      <label><input type="radio" name="q3" value="does"> does</label><br>
+      <label><input type="radio" name="q3" value="did"> did</label>
+    </div>
+    <div class="question">
+      <h3>4. My sister ______ cooking in her free time.</h3>
+      <label><input type="radio" name="q4" value="like"> like</label><br>
+      <label><input type="radio" name="q4" value="likes"> likes</label><br>
+      <label><input type="radio" name="q4" value="liking"> liking</label>
+    </div>
+    <div class="question">
+      <h3>5. There ______ some books on the table.</h3>
+      <label><input type="radio" name="q5" value="is"> is</label><br>
+      <label><input type="radio" name="q5" value="are"> are</label><br>
+      <label><input type="radio" name="q5" value="was"> was</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <script>
+    const answers = {
+      q1: "goes",
+      q2: "play",
+      q3: "do",
+      q4: "likes",
+      q5: "are"
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerText = `Your score: ${score}/${total}`;
+    }
+  </script>
+</body>
+</html>
