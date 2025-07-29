@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Grammar Quiz - Grade 7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    .question {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .question label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>English Grammar & Vocabulary Quiz - Grade 7</h2>
+
+  <form id="quizForm">
+    <div class="question">
+      <p>1. My sister usually ______ to school by bike.</p>
+      <label><input type="radio" name="q1" value="A"> A. go</label>
+      <label><input type="radio" name="q1" value="B"> B. goes</label>
+      <label><input type="radio" name="q1" value="C"> C. went</label>
+      <label><input type="radio" name="q1" value="D"> D. going</label>
+    </div>
+
+    <div class="question">
+      <p>2. We ______ a lot of interesting places last summer.</p>
+      <label><input type="radio" name="q2" value="A"> A. visit</label>
+      <label><input type="radio" name="q2" value="B"> B. are visiting</label>
+      <label><input type="radio" name="q2" value="C"> C. visited</label>
+      <label><input type="radio" name="q2" value="D"> D. will visit</label>
+    </div>
+
+    <div class="question">
+      <p>3. What are you doing? – I ______ a Science project.</p>
+      <label><input type="radio" name="q3" value="A"> A. make</label>
+      <label><input type="radio" name="q3" value="B"> B. made</label>
+      <label><input type="radio" name="q3" value="C"> C. am making</label>
+      <label><input type="radio" name="q3" value="D"> D. will make</label>
+    </div>
+
+    <div class="question">
+      <p>4. She ______ in Hanoi since 2019.</p>
+      <label><input type="radio" name="q4" value="A"> A. lives</label>
+      <label><input type="radio" name="q4" value="B"> B. lived</label>
+      <label><input type="radio" name="q4" value="C"> C. has lived</label>
+      <label><input type="radio" name="q4" value="D"> D. is living</label>
+    </div>
+
+    <div class="question">
+      <p>5. My friends ______ to the cinema tomorrow.</p>
+      <label><input type="radio" name="q5" value="A"> A. go</label>
+      <label><input type="radio" name="q5" value="B"> B. are going</label>
+      <label><input type="radio" name="q5" value="C"> C. went</label>
+      <label><input type="radio" name="q5" value="D"> D. have gone</label>
+    </div>
+
+    <div class="question">
+      <p>6. Nam (not do) _______________ his homework yet.</p>
+      <input type="text" name="q6">
+    </div>
+
+    <div class="question">
+      <p>7. Listen! The birds (sing) _______________ beautifully.</p>
+      <input type="text" name="q7">
+    </div>
+
+    <div class="question">
+      <p>8. The opposite of "polluted" is ______.</p>
+      <label><input type="radio" name="q8" value="A"> A. clean</label>
+      <label><input type="radio" name="q8" value="B"> B. dirty</label>
+      <label><input type="radio" name="q8" value="C"> C. crowded</label>
+      <label><input type="radio" name="q8" value="D"> D. bad</label>
+    </div>
+
+    <div class="question">
+      <p>9. We should ______ more trees to reduce air pollution.</p>
+      <label><input type="radio" name="q9" value="A"> A. cut</label>
+      <label><input type="radio" name="q9" value="B"> B. grow</label>
+      <label><input type="radio" name="q9" value="C"> C. plant</label>
+      <label><input type="radio" name="q9" value="D"> D. throw</label>
+    </div>
+
+    <div class="question">
+      <p>10. My hobby is ______ stamps.</p>
+      <label><input type="radio" name="q10" value="A"> A. collecting</label>
+      <label><input type="radio" name="q10" value="B"> B. playing</label>
+      <label><input type="radio" name="q10" value="C"> C. doing</label>
+      <label><input type="radio" name="q10" value="D"> D. watching</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    const answers = {
+      q1: "B",
+      q2: "C",
+      q3: "C",
+      q4: "C",
+      q5: "B",
+      q6: "hasn’t done",
+      q7: "are singing",
+      q8: "A",
+      q9: "C",
+      q10: "A"
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      const form = document.forms["quizForm"];
+      for (let i = 1; i <= 10; i++) {
+        const qName = "q" + i;
+        const userAnswer = form[qName].value.trim().toLowerCase();
+        const correctAnswer = answers[qName].toLowerCase();
+        if (userAnswer === correctAnswer) score++;
+      }
+      document.getElementById("result").innerText = `You got ${score}/10 correct!`;
+    }
+  </script>
+</body>
+</html>
